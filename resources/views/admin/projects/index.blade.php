@@ -21,6 +21,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Titolo</th>
+                        <th scope="col">Tipologia</th>
                         <th scope="col" class="d-none d-sm-table-cell">Contenuto</th>
                         <th scope="col" class="d-none d-sm-table-cell">Data inizio</th>
                         <th scope="col" class="d-none d-sm-table-cell">Data fine</th>
@@ -30,6 +31,7 @@
                     @foreach ($projects as $project)
                         <tr>
                             <th scope="row">{{ $project->title }}</th>
+                            <td>{{ $project->type?->name }}</td>
                             <td>
                                 <p class="d-none d-lg-block">{{ $project->content }}</p>
                             </td>

@@ -15,6 +15,10 @@
             <p class="fw-bold">{{ $project->title }}</p>
         </div>
         <div>
+            <h3>Tipologia:</h3>
+            <p class="fw-bold">{{ $project->type?->name }}</p>
+        </div>
+        <div>
             <h3>Contenuto:</h3>
             <p>{{ $project->content }}</p>
         </div>
