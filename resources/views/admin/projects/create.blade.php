@@ -4,6 +4,16 @@
     <div class="container">
         <h1>Crea una nuovo progetto</h1>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ route('admin.projects.store') }}" method="POST">
             {{-- Cookie per far riconoscere il form al server --}}
             @csrf
@@ -11,6 +21,16 @@
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input type="text" class="form-control" id="title" name="title">
+            </div>
+
+            <div class="mb-3">
+                <label for="type" class="form-label">Tipologia</label>
+                <select name="type_id" id="type">
+                    <option value="">SELEZIONA</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-3">
