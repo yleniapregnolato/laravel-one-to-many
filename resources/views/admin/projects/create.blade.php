@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container">
-        <h1>Crea una nuova pasta</h1>
+        <h1>Crea una nuovo progetto</h1>
 
-        <form action="{{ route('admin.project.store') }}" method="POST">
+        <form action="{{ route('admin.projects.store') }}" method="POST">
             {{-- Cookie per far riconoscere il form al server --}}
             @csrf
 
