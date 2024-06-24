@@ -14,14 +14,15 @@
                 </ul>
             </div>
         @endif
-        
+
         <form action="{{ route('admin.projects.update', ['project' => $project->slug]) }}" method="POST">
             @csrf
             @method('PUT')
 
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ $project->title }}">
+                <input type="text" class="form-control" id="title" name="title"
+                    value="{{ old('title', $project->title) }}">
             </div>
 
             <div class="mb-3">
@@ -29,25 +30,25 @@
                 <select name="type_id" id="type">
                     <option value="">SELEZIONA</option>
                     @foreach ($types as $type)
-                        <option @selected($project->type?->id == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                        <option @selected( old('type_id', $project->type?->id == $type->id)) value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="content" class="form-label">Contenuto</label>
-                <textarea class="form-control" id="content" name="content" rows="3">{{ $project->content }}</textarea>
+                <textarea class="form-control" id="content" name="content" rows="3">{{ old('content', $project->content) }}</textarea>
             </div>
 
             <div class="mb-3">
                 <label for="start_date" class="form-label">Data di inizio</label>
                 <input type="text" class="form-control" id="start_date" name="start_date"
-                    value="{{ $project->start_date }}">
+                    value="{{ old('start_date', $project->start_date) }}">
             </div>
 
             <div class="mb-3">
                 <label for="end_date" class="form-label">Data di fine</label>
-                <input type="text" class="form-control" id="end_date" name="end_date" value="{{ $project->end_date }}">
+                <input type="text" class="form-control" id="end_date" name="end_date" value="{{ old('end_date', $project->end_date) }}">
             </div>
 
             <button class="btn btn-success" type="submit">Salva</button>
