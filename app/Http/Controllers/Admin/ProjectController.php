@@ -38,6 +38,7 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $data = $request->validated();
+        // dd($data);
         $project = new Project();
         $project->fill($data);
         $project->slug = Str::slug($project->title);
